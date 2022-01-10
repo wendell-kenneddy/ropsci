@@ -5,7 +5,19 @@ interface OptionProps extends React.HTMLAttributes<HTMLDivElement> {
   additionalClasses?: string;
 }
 
+const BORDER_COLORS = {
+  rock: '#dc2e4e',
+  scissors: '#ec9e0e',
+  paper: '#4865f4'
+};
+
 export function Option({ as, additionalClasses }: OptionProps) {
+  function getBorderColor() {
+    if (as === 'paper') return 'border-paper-border';
+    if (as === 'rock') return 'border-rock-border';
+    if (as === 'scissors') return 'border-scissors-border';
+  }
+
   return (
     <div
       className={`
@@ -20,7 +32,7 @@ export function Option({ as, additionalClasses }: OptionProps) {
         items-center
         border-solid
         border-[16px]
-        border-${as}-border
+        ${getBorderColor()}
         hover:cursor-pointer
         hover:opacity-75
         transition-opacity
