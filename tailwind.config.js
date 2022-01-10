@@ -16,6 +16,11 @@ module.exports = {
         'scissors-border': '#ec9e0e',
         'paper-border': '#4865f4'
       }
+    },
+    screens: {
+      xs: '425px',
+      lg: '1024px',
+      fold: { max: '280px' }
     }
   },
   plugins: []
