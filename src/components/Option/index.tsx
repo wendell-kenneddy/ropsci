@@ -18,6 +18,12 @@ export function Option({ as, additionalClasses }: OptionProps) {
     if (as === 'scissors') return 'border-scissors-border';
   }
 
+  function getShadowColor() {
+    if (as === 'paper') return 'shadow-paper-border';
+    if (as === 'rock') return 'shadow-rock-border';
+    if (as === 'scissors') return 'shadow-scissors-border';
+  }
+
   return (
     <div
       className={`
@@ -37,6 +43,8 @@ export function Option({ as, additionalClasses }: OptionProps) {
         hover:opacity-75
         transition-opacity
         duration-200
+        shadow-lg
+        ${getShadowColor()}
         ${additionalClasses}
       `}
     >
