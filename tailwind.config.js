@@ -18,7 +18,8 @@ module.exports = {
       },
       screens: {
         xs: '425px',
-        fold: { max: '280px' }
+        fold: { max: '280px' },
+        mobileOnly: { max: '699px' }
       }
     }
   },
