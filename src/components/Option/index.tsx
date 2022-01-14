@@ -1,17 +1,15 @@
+import { ButtonHTMLAttributes } from 'react';
+
 import Image from 'next/image';
 
-interface OptionProps extends React.HTMLAttributes<HTMLDivElement> {
-  as: 'paper' | 'rock' | 'scissors';
+import { PlayOptions } from '../../contexts/GameContext';
+
+interface OptionProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  as: PlayOptions;
   additionalClasses?: string;
 }
 
-const BORDER_COLORS = {
-  rock: '#dc2e4e',
-  scissors: '#ec9e0e',
-  paper: '#4865f4'
-};
-
-export function Option({ as, additionalClasses }: OptionProps) {
+export function Option({ as, additionalClasses, ...rest }: OptionProps) {
   function getBorderColor() {
     if (as === 'paper') return 'border-paper-border';
     if (as === 'rock') return 'border-rock-border';
@@ -25,7 +23,9 @@ export function Option({ as, additionalClasses }: OptionProps) {
   }
 
   return (
-    <div
+    <button
+      type="button"
+      name={as}
       className={`
         bg-white
         w-32 h-32
@@ -47,10 +47,11 @@ export function Option({ as, additionalClasses }: OptionProps) {
         ${getShadowColor()}
         ${additionalClasses}
       `}
+      {...rest}
     >
       <div className="relative w-3/6 h-3/6">
-        <Image src={`/icon-${as}.svg`} alt="Papel" layout="fill" />
+        <Image src={`/icon-${as}.svg`} alt={as} layout="fill" />
       </div>
-    </div>
+    </button>
   );
 }
