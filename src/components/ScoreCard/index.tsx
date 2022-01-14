@@ -1,4 +1,8 @@
+import { useGame } from '../../hooks/useGame';
+
 export function ScoreCard() {
+  const { score } = useGame();
+
   return (
     <div
       className="
@@ -29,7 +33,9 @@ export function ScoreCard() {
         score
       </span>
 
-      <span className="text-3xl md:text-5xl text-dark-text font-bold">0</span>
+      <span className="text-3xl md:text-5xl text-dark-text font-bold">
+        {score}
+      </span>
     </div>
   );
 }
