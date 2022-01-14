@@ -1,7 +1,19 @@
+import { PlayOptions } from '../../contexts/GameContext';
+
+import { useGame } from '../../hooks/useGame';
+
 import { Option } from '../Option';
 import { TriangleImage } from '../TriangleImage';
 
 export function FirstStep() {
+  const { pickPlayerOption, pickHouseOption, changeStep } = useGame();
+
+  function nextStep(option: PlayOptions) {
+    pickPlayerOption(option);
+    pickHouseOption();
+    changeStep('final');
+  }
+
   return (
     <div
       className={`
@@ -17,9 +29,20 @@ export function FirstStep() {
       `}
     >
       <TriangleImage />
-      <Option as="paper" />
-      <Option as="scissors" additionalClasses="justify-self-end " />
-      <Option as="rock" additionalClasses="justify-self-center col-span-2" />
+
+      <Option as="paper" onClick={() => nextStep('paper')} />
+
+      <Option
+        as="scissors"
+        additionalClasses="justify-self-end"
+        onClick={() => nextStep('scissors')}
+      />
+
+      <Option
+        as="rock"
+        additionalClasses="justify-self-center col-span-2"
+        onClick={() => nextStep('rock')}
+      />
     </div>
   );
 }
