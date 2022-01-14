@@ -20,6 +20,7 @@ export default function Home() {
           property="og:description"
           content="A Rock, Paper, Scissors app."
         />
+        <meta property="og:url" content="https://ropsci.vercel.app/" />
         <meta property="og:locale" content="pt-BR" />
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:title" content="Ropsci" />
@@ -27,7 +28,9 @@ export default function Home() {
           property="twitter:description"
           content="A Rock, Paper, Scissors app."
         />
+        <meta property="twitter:url" content="https://ropsci.vercel.app/" />
         <title>Ropsci</title>
+        <link rel="canonical" href="https://ropsci.vercel.app/" />
       </Head>
 
       <main role="main" className="my-12">
