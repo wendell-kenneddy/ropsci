@@ -1,11 +1,14 @@
+import { useGame } from '../../hooks/useGame';
+
 import { Button } from '../Button';
 
 interface LoseProps {
-  onPlayAgain: () => void;
   additionalStyles?: string;
 }
 
-export function Lose({ onPlayAgain, additionalStyles }: LoseProps) {
+export function Lose({ additionalStyles }: LoseProps) {
+  const { resetGame } = useGame();
+
   return (
     <div
       className={`
@@ -24,7 +27,7 @@ export function Lose({ onPlayAgain, additionalStyles }: LoseProps) {
       <Button
         variant="contained"
         additionalStyles="uppercase hover:text-rock-border"
-        onClick={onPlayAgain}
+        onClick={resetGame}
       >
         Play again
       </Button>
