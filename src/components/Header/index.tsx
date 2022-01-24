@@ -22,11 +22,13 @@ export function Header() {
         justify-between
       "
     >
-      <Link href="/">
-        <a className="w-20 h-10 block relative md:w-40 md:h-20">
-          <Image src="/logo.svg" alt="Logo" layout="fill" priority />
-        </a>
-      </Link>
+      <h1>
+        <Link href="/">
+          <a className="w-20 h-10 block relative md:w-40 md:h-20">
+            <Image src="/logo.svg" alt="Logo" layout="fill" priority />
+          </a>
+        </Link>
+      </h1>
 
       <ScoreCard />
     </header>
